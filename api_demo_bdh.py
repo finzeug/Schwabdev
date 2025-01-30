@@ -2,7 +2,6 @@
 This file contains examples for every api call.
 """
 
-from dotenv import load_dotenv
 from time import sleep
 import schwabdev
 import datetime
@@ -18,14 +17,12 @@ with open(path_config, 'rt') as f:
 
 
 def main():
-    # place your app key and app secret in the .env file
-    load_dotenv()  # load environment variables from .env file
 
     # set logging level
     logging.basicConfig(level=logging.INFO)
 
     # create client
-    client = schwabdev.Client(**{k: config[k] for k in 'app_key,app_secret,callback_url'.split(',')})
+    client = schwabdev.Client(**config)
 
     print("\nGet account number and hashes for linked accounts")
     linked_accounts = client.account_linked().json()
