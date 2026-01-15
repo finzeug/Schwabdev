@@ -25,7 +25,7 @@ def main():
     client = schwabdev.Client(**config)
 
     print("\nGet account number and hashes for linked accounts")
-    linked_accounts = client.account_linked().json()
+    linked_accounts = client.linked_accounts().json()
     print(linked_accounts)
     account_hash = linked_accounts[0].get('hashValue') # this will get the first linked account
     sleep(3)
@@ -59,7 +59,7 @@ def main():
                   }
              ]
              }
-    resp = client.order_place(account_hash, order)
+    resp = client.place_order(account_hash, order)
     print("\nPlace an order:")
     print(f"Response code: {resp}")
     # get the order ID - if order is immediately filled then the id might not be returned
@@ -72,12 +72,12 @@ def main():
     sleep(3)
 
     print("\nCancel a specific order")
-    print(client.order_cancel(account_hash, order_id))
+    print(client.cancel_order(account_hash, order_id))
     sleep(3)
 
     # No demo implemented
     # print("\nReplace specific order")
-    # client.order_replace(account_hash, order_id, order)
+    # client.replace_order(account_hash, order_id, order)
     """
 
     print("\nGet up to 3000 orders for all accounts for the past 30 days")
