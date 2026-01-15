@@ -2,13 +2,17 @@ name: schwab0
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
   - ipykernel
-  - pandas
-  - pyarrow
-  - matplotlib
-  - ca-certificates
-  - openssl
   - yaml
+  - python=3.12
+  - openssl
+  - pandas
+  - ca-certificates
+  - pyarrow
   - pyyaml
-prefix: /home/brian/miniforge3/envs/schwab0
+  - matplotlib
+  - requests
+  - aiohttp
+  - cryptography
+  - websockets
+prefix: /opt/homebrew/Caskroom/miniforge/base/envs/schwab0
